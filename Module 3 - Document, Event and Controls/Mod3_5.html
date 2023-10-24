@@ -1,0 +1,120 @@
+<!-- Q.5 Create a modal box using css and Js with three buttons-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Box</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #555;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        button {
+            width: 150px;
+            height: 50px;
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-container {
+            background-color: rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Important CSS which links with script and it shows the modal box */
+        .show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal {
+            background-color: #fff;
+            width: 600px;
+            max-width: 100%;
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        p {
+            margin: 15px 10px;
+        }
+
+        #like-button {
+            background-color: white;
+            color: black;
+            font-size: 14px;
+            box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        #like-button:active {
+            background-color: rgb(192, 61, 83);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="modal-open" type="button" id="open"> Click me to open</button>
+    <div class="modal-container" id="modal_container">
+        <div class="modal">
+            <h2>Modal box opened 😍</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam maxime nam laborum in ipsa perferendis
+                atque maiores laboriosam dolor, natus neque vel, aliquid dignissimos. Consequatur labore, illum beatae
+                laudantium fuga natus quia maiores delectus, assumenda quisquam soluta, laboriosam sapiente. Libero,
+                fugit! Sunt dolorem adipisci quam eaque doloribus eligendi sed unde sint mollitia et labore iste earum
+                maxime error, vitae tenetur autem cumque beatae quae vel voluptatem eius veritatis praesentium nostrum.
+                Consequuntur magnam perspiciatis eaque temporibus!</p>
+            <button id="like-button">Like Me ❣️</button>
+            <button class="modal-close" id="close">Click me to close</button>
+        </div>
+    </div>
+
+    <script>
+        const openModal = document.getElementById('open');
+        const modalContainer = document.getElementById('modal_container');
+        const closeModal = document.getElementById('close');
+
+        // To open the modal box
+        openModal.addEventListener('click', () => {
+            modalContainer.classList.add('show');
+        })
+
+        // To close the modal box
+        closeModal.addEventListener('click', () => {
+            modalContainer.classList.remove('show');
+        })
+    </script>
+
+</body>
+
+</html>

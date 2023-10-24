@@ -1,0 +1,48 @@
+<!-- Q.5 Sum the properties There is a salaries object with arbitrary number of salaries. Write
+the function sumSalaries(salaries) that returns the sum of all salaries using
+Object.values and the for..of loop.If salaries is empty, then the result must be 0.
+
+let salaries = {
+"John": 100,
+"Pete": 300,
+"Mary": 250
+};
+alert( sumSalaries(salaries) ); // 650 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum the properties</title>
+</head>
+
+<body>
+    <script>
+        let salaries = {
+            "John": 100,
+            "Pete": 300,
+            "Mary": 250
+        };
+
+        function sumSalaries(ob) {
+            let summation = 0;
+
+            for (let values of Object.values(ob)) {
+                summation += values;
+            }
+            return summation;
+
+            if (ob == {}) {
+                return 0;
+            }
+
+        }
+        alert(sumSalaries(salaries));
+        alert(sumSalaries({}));
+    </script>
+
+</body>
+
+</html>

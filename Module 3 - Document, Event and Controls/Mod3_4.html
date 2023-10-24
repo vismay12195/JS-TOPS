@@ -1,0 +1,63 @@
+<!-- Q.4 Create a form and validate using JavaScript-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+
+<body>
+    <div id="error"></div>
+    <form id="form" method="get">
+        <label for="name">Username: </label>
+        <input name="name" id="name" type="text"><br><br>
+        <label for="password">Password:</label>
+        <input name="password" id="password" type="password"> <br><br>
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <script>
+        const nameField = document.getElementById('name');
+        const passwordField = document.getElementById('password');
+        const form = document.getElementById('form');
+        const errorElement = document.getElementById('error');
+
+        //Adding an event when clicking on form submit to prevent from going to the next step
+
+        form.addEventListener('submit', (e) => {
+            // An array to collect all the error messages
+            let errorMessages = [];
+
+            // If no username entered 
+            if (nameField.value === '' || nameField.value == null) {
+                errorMessages.push('Username must be entered')
+            }
+
+            // Checking the password with conditions
+            if (passwordField.value.length <= 6) {
+                errorMessages.push('Password must be longer than 6 characters')
+            }
+
+            if (passwordField.value.length > 20) {
+                errorMessages.push('Password can not be longer than 20 characters')
+            }
+
+            if (passwordField.value === 'password' || passwordField.value === 'Password' || passwordField.value === 'PASSWORD') {
+                errorMessages.push('Password can not be set to password/Password/PASSWORD');
+            }
+
+            // Showing the error messages at the top of the div in its specified div
+            if (errorMessages.length > 0) {
+                e.preventDefault();
+                errorElement.innerText = errorMessages.join(', ');
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

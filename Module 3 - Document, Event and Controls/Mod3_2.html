@@ -1,0 +1,38 @@
+<!-- Q.2 Create a program that will select all the classes and loop over and whenever i click the
+button the alert should show-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Button Generate Alert</title>
+</head>
+
+<body>
+
+    <h2> Click the button and generate the alert </h2>
+    <button class="clickme" onClick="buttonClicked()">Click to me get the alert</button>
+
+    <script>
+
+        // Catching the button by class
+        const allBTN = document.getElementsByClassName("clickme");
+
+        // Button functionality
+        const buttonClicked = () => {
+            alert("Your alert is showing here");
+        }
+
+        // Loop Over
+        for (allBTN of buttonClicked) {
+            allBTN.addEventListener('click', (buttonClicked) => {
+                return alert("Empty alertt")
+            })
+        }
+
+    </script>
+</body>
+
+</html>

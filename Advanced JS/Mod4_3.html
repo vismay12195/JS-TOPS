@@ -1,0 +1,57 @@
+<!-- Q.3 Write a program of promises and handle that promises also -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise concept</title>
+</head>
+
+<body>
+    <h2>Promise Concept</h2>
+    <script>
+        const getTodos = (resource) => {
+            return new Promise((resolve, reject) => {
+                const request = new XMLHttpRequest();
+                request.addEventListener('readystatechange', () => {
+                    if (request.readyState === 4 && request.status === 200) {
+                        const data = JSON.parse(request.responseText);
+                        resolve(data);
+                    }
+                    else if (request.readyState === 4) {
+                        reject('error getting resource');
+                    }
+                })
+
+
+                request.open('GET', resource);
+                request.send();
+            })
+
+        }
+
+        // chain of Promises and chains are always returned. 
+        getTodos('callback1.json').then(data => {
+            console.log('promise 1 resolved: ', data);
+            // for chaining of the promises instead of calling out the function directly we basically "return" it. What that means is the parents of this thing right here now have a return value of chained promise.
+            return getTodos('callback2.json');
+        }).then(data => {
+            console.log('promise 2 resolved: ', data);
+            return getTodos('callback3.json');
+        }).then(data => {
+            console.log('promise 3 resolved: ', data);
+        }).catch(err => {
+            console.log('promise rejected: ', err);
+        });// The good thing about error is we dont have to write it again and again for chaining of promises,
+    </script>
+</body>
+
+</html>
+
+<!-- ======================Promise concept===========================
+
+- One of the biggest advantage of a Promise is we can chain them to process one asynchronous task after another in
+order should we need to.
+- Chaining the promises is much cleaner and easier process than going throug the callback hell. -->

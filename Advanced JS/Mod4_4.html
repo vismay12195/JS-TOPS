@@ -1,0 +1,34 @@
+<!-- Q.4 Use fetch method for calling an api https://fakestoreapi.com/products -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern JS - fetch API</title>
+</head>
+
+<body>
+    <h2>fetch API</h2>
+    <script>
+        fetch('https://fakestoreapi.com/products').then((response) => {
+            console.log('resolved', response);
+            return response.json();
+        }).then(data => {
+            console.log('Final data: ', data);
+        }).catch((err) => {
+            console.log('rejected', err);
+        });
+    </script>
+</body>
+
+</html>
+
+<!-- ========================fetch function===========================
+>>>> 3 Important Steps to remember in fetch() method >>>>>>>
+1. We fetch the data from the API/endpoint URL.
+2. We apply the ".then()" method by passing the "response" as an argument and that returns the "response.json()" to
+provide the data which is also a promise itself.
+3. And then chaining the promise to ".then(data)" function to actually get the data from the API and make it useful.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.>>>>>>

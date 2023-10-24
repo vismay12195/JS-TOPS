@@ -1,0 +1,98 @@
+<!-- Q.1 Create a program to hide/show the password -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Hide/Show Password</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: x-large;
+            text-decoration: underline;
+            line-height: 45px;
+            margin-bottom: 25px;
+        }
+
+        #btn-showhide {
+            width: 15%;
+            height: 25px;
+            border-radius: 10px;
+            font-size: medium;
+        }
+
+        .btn-show-hide {
+            color: red;
+            margin-left: 10px;
+            cursor: pointer;
+            opacity: 1.0;
+            font-size: 20px;
+        }
+
+        .btn-show-hide:hover {
+            transform: scale(0.9);
+        }
+
+        .btn-show-hide:active {
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Show/Hide Password </h2>
+
+    <input type="password" id="btn-showhide">
+    <i class="fa-solid fa-eye btn-show-hide" data-for="btn-showhide"></i>
+
+    <script>
+
+        // Making a list of all the btn-show-hide inside the HTML
+        const allBtnSHP = document.querySelectorAll(".btn-show-hide");
+
+        // Adding the functionalities to the allBtnSHP  
+
+        allBtnSHP.forEach((button) => {
+            // Now getting the button /icon by its ID of input field
+            const forIcon = document.getElementById(button.dataset.for);
+
+            // Once found the icon we are going to check if it is an instance of HTML input Element
+            if (forIcon && forIcon instanceof HTMLInputElement) {
+
+                // functionality to look out for mousedown or when its being touched converting the password to text
+                ["mousedown", "touchstart"].forEach((eventName) => {
+                    button.addEventListener(eventName, () => {
+                        forIcon.setAttribute("type", "text");
+                    });
+                });
+
+                //functionality to hide password from text to its original type of password
+                ["mouseup", "mouseleave", "touchend", "touchcancel"].forEach((eventName) => {
+                    button.addEventListener(eventName, (e) => {
+                        e.preventDefault();
+                        forIcon.setAttribute("type", "password");
+                    });
+                });
+
+            }
+
+        })
+
+
+    </script>
+</body>
+
+</html>

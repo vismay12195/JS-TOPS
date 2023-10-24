@@ -1,0 +1,39 @@
+<!-- The following function returns true if the parameter age is greater than
+18. Otherwise it asks for a confirmation and returns its result:
+            function
+            checkAge(age)
+            {
+            if (age> 18) { return true; }
+            else {
+            // ...return confirm (‘did parents allow you?');
+            }
+            } -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condition Check Function</title>
+</head>
+
+<body>
+    <script>
+        function
+            checkAge(age) {
+            if (age > 18) {
+                let age = alert("Yes, your age is above 18");
+                return true;
+            }
+            else {
+                let a = confirm("did parents allow you?");
+                return a;
+            }
+        }
+        console.log(checkAge(19));
+        console.log(checkAge(17));
+    </script>
+</body>
+
+</html>

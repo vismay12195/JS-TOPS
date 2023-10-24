@@ -1,0 +1,25 @@
+<!-- Q.7 Turn the object into JSON and back Turn the user into JSON and then read it back
+into another variable.
+user = { name: "John Smith", age: 35}; -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object into JSON</title>
+</head>
+
+<body>
+
+    <script>
+        let user = { name: "John Smith", age: 35 };
+        let jsonUser = JSON.stringify(user);
+        console.log(jsonUser);
+        let anotherUser = JSON.parse(jsonUser);
+        console.log("Another Variable is anotherUser: ", anotherUser);
+    </script>
+</body>
+
+</html>

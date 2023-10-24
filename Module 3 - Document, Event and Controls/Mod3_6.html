@@ -1,0 +1,51 @@
+<!-- Q.6 Use external js library to show slider -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planets Slider Show</title>
+    <!-- jquery snippet -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <!-- Using the jquery plugin-cycle -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.cycle/3.0.3/jquery.cycle.all.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Welcome to Planet Paradise</h1>
+        <div class="slider">
+            <img src="https://images.unsplash.com/photo-1632395627732-005012dbc286?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D"
+                width="640" height="576">
+            <img src="https://images.unsplash.com/photo-1632395627727-3b97d0724814?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D"
+                width="640" height="576">
+            <img src="https://images.unsplash.com/photo-1481819613568-3701cbc70156?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8"
+                width="640" height="576">
+            <img src="https://images.unsplash.com/photo-1560507074-b9eb43faab00?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEyfHx8ZW58MHx8fHx8"
+                width="640" height="576">
+            <img src="https://images.unsplash.com/photo-1643330683233-ff2ac89b002c?auto=format&fit=crop&q=60&w=500&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzF8fHBsYW5ldHN8ZW58MHx8MHx8fDA%3D"
+                width="640" height="576">
+        </div>
+
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.slider').cycle({
+                fx: 'fade',
+                pause: 0.5,
+                prev: '#prev',
+                next: '#next'
+            });
+        })
+    </script>
+
+</body>
+
+</html>

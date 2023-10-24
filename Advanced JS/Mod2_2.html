@@ -1,0 +1,26 @@
+<!-- Q.2 Is array copied?
+let fruits = ["Apples", "Pear", "Orange"]; // push a new value into the "copy" let
+shoppingCart = fruits; shoppingCart.push("Banana"); // what's in fruits?
+alert( fruits.length ); // ? -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check the Copied Array</title>
+</head>
+
+<body>
+    <script>
+        let fruits = ["Apples", "Pear", "Orange"];
+        let shoppingCart = fruits; //  Copied array
+        shoppingCart.push("Banana");
+        console.log("Inside the fruits array: " + fruits);
+        alert(fruits.length);
+
+    </script>
+</body>
+
+</html>
